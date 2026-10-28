@@ -1,0 +1,32 @@
+{
+  "id": "TAX-INVOICE-TITLE",
+  "title": "开票信息缺纳税人识别号或抬头与主体不一致",
+  "severity": "medium",
+  "source": "《中华人民共和国发票管理办法》（2023 修订）第二十二条：不符合规定的发票不得作为财务报销凭证",
+  "advice": "开票信息里应同时包含「名称 + 纳税人识别号」，且与合同主体一致。缺失或与主体不一致会导致发票不能入账。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "^(?![^\\n]*纳税人识别号)[^\\n]*(?:发票抬头|开票信息|invoice[ _-]?title)[^\\n]*$",
+    "flags": "gmi",
+    "wholeFile": true,
+    "exts": [
+      ".yml",
+      ".yaml",
+      ".json",
+      ".properties",
+      ".toml",
+      ".sql",
+      ".md",
+      ".txt",
+      ".java",
+      ".js",
+      ".ts",
+      ".py",
+      ".xml",
+      ".conf",
+      ".ini"
+    ],
+    "max": 20,
+    "when": "(?:发票|开票|抬头|纳税人识别号)"
+  }
+}

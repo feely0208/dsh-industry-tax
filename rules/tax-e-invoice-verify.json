@@ -1,0 +1,32 @@
+{
+  "id": "TAX-E-INVOICE-VERIFY",
+  "title": "电子发票未做验真/重复报销校验",
+  "severity": "medium",
+  "source": "《企业会计信息化工作规范》（财会〔2013〕20号）第三十条；税务总局电子发票推广要求",
+  "advice": "电子发票应接入验真与查重（发票号码/代码唯一性校验），否则存在重复报销与假票风险。配置里应能看到 verify/check 相关开关或字段。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "^(?![^\\n]*(?:验真|查验|查重|verify|dedup))[^\\n]*(?:电子发票|e-?invoice)[^\\n]*$",
+    "flags": "gmi",
+    "wholeFile": true,
+    "exts": [
+      ".yml",
+      ".yaml",
+      ".json",
+      ".properties",
+      ".toml",
+      ".sql",
+      ".md",
+      ".txt",
+      ".java",
+      ".js",
+      ".ts",
+      ".py",
+      ".xml",
+      ".conf",
+      ".ini"
+    ],
+    "max": 20,
+    "when": "(?:电子发票|e-?invoice)"
+  }
+}
